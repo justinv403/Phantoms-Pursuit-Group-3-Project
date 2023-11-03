@@ -6893,6 +6893,11 @@ PrefabInstance:
       propertyPath: useSprintBar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2568564339920975898, guid: 129fd643e53a806469496a0cf6e2ea40,
+        type: 3}
+      propertyPath: sprintCooldown
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7755311228635636477, guid: 129fd643e53a806469496a0cf6e2ea40,
         type: 3}
       propertyPath: m_LocalPosition.x

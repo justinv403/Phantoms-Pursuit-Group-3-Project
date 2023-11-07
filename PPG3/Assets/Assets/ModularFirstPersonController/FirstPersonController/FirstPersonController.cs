@@ -255,16 +255,28 @@ public class FirstPersonController : MonoBehaviour
             Quaternion newCameraRotation = Quaternion.Euler(pitch, 0, 0);
             playerCamera.transform.localRotation = newCameraRotation;
 
+
+            // adjust Remy position
             remy.transform.localEulerAngles = new Vector3(0, yaw, 0);
             remyShadow.transform.localEulerAngles = new Vector3(0, yaw, 0);
-            itemSlot.transform.localEulerAngles = new Vector3(pitch, yaw, 0);
 
             Vector3 remyPosition = new Vector3(transform.position.x, transform.position.y - 2, transform.position.z);
 
             remy.transform.position = remyPosition;
             remyShadow.transform.position = remyPosition;
             
-            itemSlot.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+            //itemSlot.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+
+            // adjust item slot position/rotation
+            itemSlot.transform.localEulerAngles = new Vector3(pitch, yaw, 0);
+
+
+            //Mathf.Lerp(playerCamera.fieldOfView, zoomFOV, zoomStepTime * Time.deltaTime)
+            Vector3 itemSlotVector = new Vector3(0, 0, 0);
+            itemSlotVector.x = Mathf.Lerp(itemSlot.transform.position.x, transform.position.x, Time.deltaTime * 30);
+            itemSlotVector.y = Mathf.Lerp(itemSlot.transform.position.y, transform.position.y + 1.5f, Time.deltaTime * 30);
+            itemSlotVector.z = Mathf.Lerp(itemSlot.transform.position.z, transform.position.z, Time.deltaTime * 30);
+            itemSlot.transform.position = itemSlotVector;
 
         }
 
@@ -346,7 +358,6 @@ public class FirstPersonController : MonoBehaviour
                     playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, initFOV, sprintFOVStepTime * Time.deltaTime);
                 }
 
-                Debug.Log(sprintRemaining + "Else");
             }
 
             // Handles sprint cooldown 

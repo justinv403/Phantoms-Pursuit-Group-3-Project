@@ -9,13 +9,15 @@ public class FirstPersonAnimator : MonoBehaviour
 
     // get FirstPersonController script
     FirstPersonController fpsController;
+    GameObject parentGameObject;
     
     // Start is called before the first frame update
     void Start()
     {
         // get animator from child
-        animators = GetComponentsInChildren<Animator>();
-        fpsController = GetComponent<FirstPersonController>();
+        parentGameObject = transform.parent.gameObject;
+        animators = parentGameObject.GetComponentsInChildren<Animator>();
+        fpsController = parentGameObject.GetComponentInChildren<FirstPersonController>();
     }
 
     // Update is called once per frame

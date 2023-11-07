@@ -116,6 +116,9 @@ public class FirstPersonController : MonoBehaviour
     public bool isCrouched = false;
     private Vector3 originalScale;
 
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
+
     #endregion
     #endregion
 
@@ -129,6 +132,15 @@ public class FirstPersonController : MonoBehaviour
     // Internal Variables
     private Vector3 jointOriginalPos;
     private float timer = 0;
+
+    // additional variables for Remy
+    private GameObject remy;
+    private GameObject remyShadow;
+    private GameObject itemSlot;
+    private Transform item;
+
+    // fov fix
+    private float initFOV = 0;
 
     #endregion
 
@@ -152,6 +164,20 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
+        
+        originalPosition = transform.position;
+        originalRotation = transform.rotation;
+
+        remy = GameObject.Find("RemyVisible");
+        remyShadow = GameObject.Find("RemyShadow");
+        itemSlot = GameObject.Find("ItemSlot");
+        item = itemSlot.transform.GetChild(0);
+
+        walkSpeed = walkSpeed/50;
+        sprintSpeed = sprintSpeed/50;
+
+        initFOV = fov;
+        
         if(lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -223,8 +249,23 @@ public class FirstPersonController : MonoBehaviour
             // Clamp pitch between lookAngle
             pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
 
-            transform.localEulerAngles = new Vector3(0, yaw, 0);
-            playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
+            Quaternion newRotation = Quaternion.Euler(0, yaw, 0);
+            rb.MoveRotation(newRotation);
+
+            Quaternion newCameraRotation = Quaternion.Euler(pitch, 0, 0);
+            playerCamera.transform.localRotation = newCameraRotation;
+
+            remy.transform.localEulerAngles = new Vector3(0, yaw, 0);
+            remyShadow.transform.localEulerAngles = new Vector3(0, yaw, 0);
+            itemSlot.transform.localEulerAngles = new Vector3(pitch, yaw, 0);
+
+            Vector3 remyPosition = new Vector3(transform.position.x, transform.position.y - 2, transform.position.z);
+
+            remy.transform.position = remyPosition;
+            remyShadow.transform.position = remyPosition;
+            
+            itemSlot.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+
         }
 
         #region Camera Zoom
@@ -260,14 +301,17 @@ public class FirstPersonController : MonoBehaviour
             }
 
             // Lerps camera.fieldOfView to allow for a smooth transistion
-            if(isZoomed)
+            bool isZoomedOrSprinting = isZoomed || isSprinting;
+            
+            if (isSprinting)
             {
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, zoomFOV, zoomStepTime * Time.deltaTime);
+               playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, zoomFOV, zoomStepTime * Time.deltaTime);
             }
-            else if(!isZoomed && !isSprinting)
+            else
             {
                 playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, fov, zoomStepTime * Time.deltaTime);
             }
+            
         }
 
         #endregion
@@ -283,7 +327,7 @@ public class FirstPersonController : MonoBehaviour
                 playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
 
                 // Drain sprint remaining while sprinting
-                if(!unlimitedSprint)
+                if(!unlimitedSprint && sprintRemaining >= 0)
                 {
                     sprintRemaining -= 1 * Time.deltaTime;
                     if (sprintRemaining <= 0)
@@ -291,12 +335,18 @@ public class FirstPersonController : MonoBehaviour
                         isSprinting = false;
                         isSprintCooldown = true;
                     }
+
                 }
             }
             else
             {
                 // Regain sprint while not sprinting
                 sprintRemaining = Mathf.Clamp(sprintRemaining += 1 * Time.deltaTime, 0, sprintDuration);
+                if(!isZoomed){
+                    playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, initFOV, sprintFOVStepTime * Time.deltaTime);
+                }
+
+                Debug.Log(sprintRemaining + "Else");
             }
 
             // Handles sprint cooldown 
@@ -376,7 +426,7 @@ public class FirstPersonController : MonoBehaviour
 
             // Checks if player is walking and isGrounded
             // Will allow head bob
-            if (targetVelocity.x != 0 || targetVelocity.z != 0 && isGrounded)
+            if ((targetVelocity.x != 0 || targetVelocity.z != 0) && isGrounded)
             {
                 isWalking = true;
             }
@@ -414,7 +464,10 @@ public class FirstPersonController : MonoBehaviour
                     }
                 }
 
-                rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                Vector3 newPosition = transform.position + velocityChange;
+                rb.MovePosition(newPosition);
+                
+                //rb.AddForce(velocityChange, ForceMode.VelocityChange);
             }
             // All movement calculations while walking
             else
@@ -435,7 +488,9 @@ public class FirstPersonController : MonoBehaviour
                 velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
                 velocityChange.y = 0;
 
-                rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                //rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                Vector3 newPosition = transform.position + velocityChange;
+                rb.MovePosition(newPosition);
             }
         }
 

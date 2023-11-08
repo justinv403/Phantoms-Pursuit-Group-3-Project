@@ -8,16 +8,23 @@ public class FirstPersonAnimator : MonoBehaviour
     Animator[] animators;
 
     // get FirstPersonController script
-    FirstPersonController fpsController;
-    GameObject parentGameObject;
+    private FirstPersonController fpsController;
+    private GameObject remyVisible;
+    private GameObject remyShadow;
     
     // Start is called before the first frame update
     void Start()
     {
         // get animator from child
-        parentGameObject = transform.parent.gameObject;
-        animators = parentGameObject.GetComponentsInChildren<Animator>();
-        fpsController = parentGameObject.GetComponentInChildren<FirstPersonController>();
+        remyVisible = GameObject.Find("RemyVisible");
+        remyShadow = GameObject.Find("RemyShadow");
+        animators[0] = remyVisible.GetComponent<Animator>();
+        animators[1] = remyShadow.GetComponent<Animator>();
+
+        // get FPS controller
+        fpsController = gameObject.GetComponentInChildren<FirstPersonController>();
+
+        Debug.Log("remyVisible = " + remyVisible);
     }
 
     // Update is called once per frame
@@ -26,6 +33,7 @@ public class FirstPersonAnimator : MonoBehaviour
         // set the walk state of the player
         float h = Mathf.Abs(Input.GetAxis("Horizontal")) + Mathf.Abs(Input.GetAxis("Vertical"));
 
+        /*
         if(h > 0 && !fpsController.isCrouched)
         {
             animators[0].SetFloat("WalkState", 1.0f);
@@ -46,7 +54,7 @@ public class FirstPersonAnimator : MonoBehaviour
             animators[0].SetFloat("WalkState", 0.0f);
             animators[1].SetFloat("WalkState", 0.0f);
         }
-        
+        */
         
         
         

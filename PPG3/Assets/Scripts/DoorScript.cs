@@ -43,7 +43,7 @@ public class DoorScript : MonoBehaviour
         // slam the door when locked
         if(isLocked){
             hinge.localRotation = Quaternion.Lerp(hinge.localRotation, Quaternion.Euler(0,0,0), Time.deltaTime * slamSpeed);
-            if(!slamPlayed)
+            if(!slamPlayed && slamSound != null)
             {
                 audioSource.PlayOneShot(slamSound);
                 slamPlayed = true;
@@ -57,7 +57,7 @@ public class DoorScript : MonoBehaviour
             // rotate the hinge to the new angle
             Quaternion targetRotation = Quaternion.Euler(0, 0, 0);
             hinge.localRotation = Quaternion.Slerp(hinge.localRotation, targetRotation, Time.deltaTime * rotationSpeed * 3);
-            if(!clickPlayed){
+            if(!clickPlayed && springClick != null){
                 audioSource.PlayOneShot(springClick);
                 clickPlayed = true;
             }
@@ -84,7 +84,7 @@ public class DoorScript : MonoBehaviour
                 distanceToDoor = 2f;
             }
             
-        } else if(isLocked)
+        } else if(isLocked && attemptOpen != null)
         {
             audioSource.PlayOneShot(attemptOpen);
         }
@@ -129,7 +129,7 @@ public class DoorScript : MonoBehaviour
             
             // if difference between new angle and old angle is great, then play sound
             // play creak sound
-            if(Mathf.Abs(targetRotation.eulerAngles.y - hinge.localEulerAngles.y) > creakThreshold && creakCounter >= 50){
+            if(Mathf.Abs(targetRotation.eulerAngles.y - hinge.localEulerAngles.y) > creakThreshold && creakCounter >= 50 && creak != null){
                 audioSource.PlayOneShot(creak);
                 creakCounter = 0;
             }

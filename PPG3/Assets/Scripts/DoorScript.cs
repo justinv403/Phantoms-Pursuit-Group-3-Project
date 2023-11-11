@@ -30,8 +30,16 @@ public class DoorScript : MonoBehaviour
             Vector3 hingeToStartDragPosition = startDragPosition - hinge.position;
             Vector3 hingeToCurrentDragPosition = dragPosition - hinge.position;
 
+            // Normalize the vectors
+            hingeToStartDragPosition.Normalize();
+            hingeToCurrentDragPosition.Normalize();
+
+            // Calculate the angle using dot product and cross product
+            float dot = Vector3.Dot(hingeToStartDragPosition, hingeToCurrentDragPosition);
+            float cross = Vector3.Cross(hingeToStartDragPosition, hingeToCurrentDragPosition).y;
+            float angle = Mathf.Atan2(cross, dot) * Mathf.Rad2Deg;
+
             // update angle, and set new angle
-            float angle = Vector3.SignedAngle(hingeToStartDragPosition, hingeToCurrentDragPosition, hinge.up);
             float newAngle = Mathf.Clamp(startAngle + angle, minAngle, maxAngle);
 
             // rotate the hinge to the new angle

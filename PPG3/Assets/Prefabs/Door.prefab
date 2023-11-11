@@ -1453,12 +1453,11 @@ MonoBehaviour:
   hinge: {fileID: 3304309314450901904}
   rotationSpeed: 3
   isLocked: 0
-  pushFactor: 1.8
   slamSpeed: 10
   creakThreshold: 2
   creak: {fileID: 8300000, guid: 62224e1616777164183442fd94519254, type: 3}
   slamSound: {fileID: 8300000, guid: b070a5d0b42155844865e728cdb5983b, type: 3}
   springClick: {fileID: 8300000, guid: a0ed3982f20a593499d47ae1881b4ab7, type: 3}
+  attemptOpen: {fileID: 8300000, guid: 6057bd8ebaf01dd469e00a8ea601aee9, type: 3}
   minAngle: 0
   maxAngle: 90
-  backwardsDirection: 0

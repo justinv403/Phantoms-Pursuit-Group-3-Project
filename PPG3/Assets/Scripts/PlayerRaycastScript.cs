@@ -37,7 +37,7 @@ public class PlayerRaycastScript : MonoBehaviour
         // if there is a selected door
         if (selectedDoor != null)
         {
-            selectedDoor.Interact(hit.point, transform.position);
+            selectedDoor.Interact(hit.point);
         }
     }
 
@@ -52,7 +52,7 @@ public class PlayerRaycastScript : MonoBehaviour
                 if (selectedDoor == null)
                 {
                     selectedDoor = doorScript;
-                    selectedDoor.StartInteraction(hit.point, transform.position);
+                    selectedDoor.StartInteraction(hit.point);
                 }
             }
         }

@@ -473,17 +473,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hinge: {fileID: 5458284585913181165}
-  rotationSpeed: 3
+  rotationSpeed: 1
   isLocked: 0
-  pushFactor: 1.5
   slamSpeed: 10
   creakThreshold: 2
   creak: {fileID: 8300000, guid: 62224e1616777164183442fd94519254, type: 3}
   slamSound: {fileID: 8300000, guid: b070a5d0b42155844865e728cdb5983b, type: 3}
   springClick: {fileID: 8300000, guid: a0ed3982f20a593499d47ae1881b4ab7, type: 3}
+  attemptOpen: {fileID: 0}
   minAngle: 0
   maxAngle: 90
-  backwardsDirection: 0
+  leftHinged: 0
 --- !u!1 &608036286128032067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,17 +1428,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hinge: {fileID: 1660765772462769838}
-  rotationSpeed: 3
+  rotationSpeed: 1
   isLocked: 0
-  pushFactor: 1.5
   slamSpeed: 10
   creakThreshold: 2
   creak: {fileID: 8300000, guid: 62224e1616777164183442fd94519254, type: 3}
   slamSound: {fileID: 8300000, guid: b070a5d0b42155844865e728cdb5983b, type: 3}
   springClick: {fileID: 8300000, guid: a0ed3982f20a593499d47ae1881b4ab7, type: 3}
+  attemptOpen: {fileID: 0}
   minAngle: -90
   maxAngle: 0
-  backwardsDirection: 0
+  leftHinged: 1
 --- !u!1 &2305804121244764185
 GameObject:
   m_ObjectHideFlags: 0

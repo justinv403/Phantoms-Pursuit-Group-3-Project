@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5000599976039442808
 Transform:
@@ -513,7 +513,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
+  m_StaticShadowCaster: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -972,6 +972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137c4aa8e6ae7164f9aa431a2c4aef8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hinge: {fileID: 7461264256557262932}
 --- !u!1 &6351636950670847771
 GameObject:
   m_ObjectHideFlags: 0

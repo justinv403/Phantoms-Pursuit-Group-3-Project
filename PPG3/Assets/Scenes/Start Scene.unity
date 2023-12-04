@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.008764332, g: 0.012912721, b: 0.019922966, a: 1}
+  m_IndirectSpecularColor: {r: 0.008766672, g: 0.012824173, b: 0.020020852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -451,7 +451,8 @@ AudioSource:
   m_GameObject: {fileID: 541327602}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c7fda6bc1a6963a4c84a2351b617db1b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 715c383811c8e0745a345d19e85fd6aa, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.397
@@ -1360,7 +1361,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1881064202}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 541327607}
+        m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
+        m_MethodName: OpenScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2017195836
 GameObject:
   m_ObjectHideFlags: 0

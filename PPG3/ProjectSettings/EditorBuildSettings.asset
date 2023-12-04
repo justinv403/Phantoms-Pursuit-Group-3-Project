@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Practice Scene.unity
     guid: 0af0efb882992a845adc00c1c2984f85
+  - enabled: 1
+    path: Assets/Scenes/Options Scene.unity
+    guid: 0d2b7c8860218984eaabdfbe00dd6c83
   m_configObjects: {}

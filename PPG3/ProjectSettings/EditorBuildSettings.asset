@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Assets/Scenes/Start Scene.unity
+    path: Assets/Scenes/Start Scene.unity
     guid: b96b69717847f2d478793ea782169693
   - enabled: 1
-    path: Assets/Assets/Scenes/Credit Scene.unity
+    path: Assets/Scenes/Credit Scene.unity
     guid: 73e5f5c80e0f80349bd85330f36af436
   - enabled: 1
     path: Assets/Scenes/SmallHouse.unity
     guid: a61752e7fed6fb641b4695bd21077161
   - enabled: 1
-    path: Assets/Scenes/StartScene.unity
+    path: Assets/Scenes/Practice Scene.unity
     guid: 0af0efb882992a845adc00c1c2984f85
   m_configObjects: {}

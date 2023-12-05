@@ -36,6 +36,9 @@ public class Ghost : MonoBehaviour
     // Player transform
     public Transform player;
 
+    // Front Door
+    public DoorScript frontDoor;
+
     // Helper variables
     int randNum;
     public Vector3 rayCastOffset;
@@ -58,6 +61,7 @@ public class Ghost : MonoBehaviour
                 StopCoroutine("stayIdle");
                 StopCoroutine("chaseRoutine");
                 StartCoroutine("chaseRoutine");
+                frontDoor.isLocked = true;
                 chasing = true;
             }
         }

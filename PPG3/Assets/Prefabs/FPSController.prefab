@@ -791,6 +791,11 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 183
       objectReference: {fileID: 0}
+    - target: {fileID: 4459864851310106426, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_AllowDynamicResolution
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4459864851508666808, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -868,13 +873,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9060519137319529082, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
+      propertyPath: m_StopNaN
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060519137319529082, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
       propertyPath: m_Dithering
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9060519137319529082, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: m_Antialiasing
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9060519137319529082, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}

@@ -22346,6 +22346,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 371261000}
+    - target: {fileID: 846666795321105312, guid: 7b708d33719a5d94ab4a05e09b5edf43,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1345242471659857415, guid: 7b708d33719a5d94ab4a05e09b5edf43,
         type: 3}
       propertyPath: m_Mesh
@@ -23436,6 +23441,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d2cc1ca0f6d13ce42b2eadd7b9be26bc, type: 2}
+    - target: {fileID: 8399503632301644776, guid: 7b708d33719a5d94ab4a05e09b5edf43,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8512205610262924918, guid: 7b708d33719a5d94ab4a05e09b5edf43,
         type: 3}
       propertyPath: m_Mesh
@@ -25009,6 +25019,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1203015252}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1204601943 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8495059384176844497, guid: 7b708d33719a5d94ab4a05e09b5edf43,
+    type: 3}
+  m_PrefabInstance: {fileID: 1074695320}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137c4aa8e6ae7164f9aa431a2c4aef8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1215081030
 Mesh:
   m_ObjectHideFlags: 0
@@ -28666,13 +28688,14 @@ MonoBehaviour:
   maxIdleTime: 5
   detectionRange: 10
   chasing: 0
-  chaseSpeed: 4
+  chaseSpeed: 3
   catchDistance: 3
-  minChaseTime: 3
-  maxChaseTime: 8
+  minChaseTime: 2
+  maxChaseTime: 5
   jumpscareTime: 0
   deathScene: Start Scene
   player: {fileID: 1674193346}
+  frontDoor: {fileID: 1204601943}
   rayCastOffset: {x: 0, y: 0, z: 0}
 --- !u!195 &1517684798
 NavMeshAgent:

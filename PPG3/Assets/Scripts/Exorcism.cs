@@ -10,7 +10,7 @@ public class Exorcism : MonoBehaviour
 
     void Start()
     {
-        ExorcismText.SetActive(false);
+        ExorcismText.SetActive(false); // Hide text
         CannotExorcismText.SetActive(false);
         WinPanel.SetActive(false); // Initially hide the win panel
         ReturnMenuText.SetActive(false);
@@ -20,12 +20,12 @@ public class Exorcism : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (ItemPickup.items <= 0)
+            if (ItemPickup.items <= 0) // All items picked up
             {
-                ExorcismText.SetActive(true);
-                if (Input.GetKey(KeyCode.E))
+                ExorcismText.SetActive(true); // Show text indicating that you can and how to exorcise
+                if (Input.GetKey(KeyCode.E)) // Press E to Exorcise
                 {
-                    ExorcismText.SetActive(false);
+                    ExorcismText.SetActive(false); // Remove text if player wins
                     GetComponent<AudioSource>().Play();
                     Debug.Log("Winner");
                     ShowWinPanel(); // Show win panel instead of just logging
@@ -33,11 +33,12 @@ public class Exorcism : MonoBehaviour
             }
             else
             {
-                CannotExorcismText.SetActive(true);
+                CannotExorcismText.SetActive(true); // If player doesn't have enought items, show text saying they don't
             }
         }
     }
 
+    // Remove text when player leaves area
     private void OnTriggerExit(Collider other)
     {
         ExorcismText.SetActive(false);

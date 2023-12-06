@@ -40695,6 +40695,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toy2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4879052269769726756, guid: 94cbee7f043cbb349a92e0d2326e6946,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

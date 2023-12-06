@@ -7,6 +7,7 @@ public class SceneSwitcher : MonoBehaviour
 {
     public void OpenScene(int index)
     {
+        ItemPickup.items = 0;
         SceneManager.LoadScene(index);
     }
 }

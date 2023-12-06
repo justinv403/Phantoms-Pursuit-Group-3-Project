@@ -7422,12 +7422,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 20788543}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &262107950 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5527487422267639803, guid: e3d865205e441db478b0a60de8db7261,
-    type: 3}
-  m_PrefabInstance: {fileID: 6177483}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &287781160
 GameObject:
   m_ObjectHideFlags: 0
@@ -29044,7 +29038,7 @@ MonoBehaviour:
   - {fileID: 470048481}
   - {fileID: 989355529}
   - {fileID: 86341726}
-  walkSpeed: 2
+  walkSpeed: 0
   minIdleTime: 2
   maxIdleTime: 5
   detectionRange: 10
@@ -32237,13 +32231,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690182410}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 470625cf43d078b4f86eac75cedfb795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExorcismText: {fileID: 2066063034}
-  CannotExorcismText: {fileID: 262107950}
+  ExorcismText: {fileID: 0}
+  CannotExorcismText: {fileID: 0}
   WinPanel: {fileID: 1690182410}
   ReturnMenuText: {fileID: 0}
 --- !u!43 &1699012483
@@ -41773,12 +41767,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064151104}
   m_CullTransparentMesh: 1
---- !u!1 &2066063034 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2437380467344936323, guid: e3d865205e441db478b0a60de8db7261,
-    type: 3}
-  m_PrefabInstance: {fileID: 6177483}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2087773085 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100008, guid: 85abc66ee2c921c4f94d78ff0bae4348,

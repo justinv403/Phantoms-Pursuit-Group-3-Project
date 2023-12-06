@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hinge: {fileID: 3304309314450901904}
-  rotationSpeed: 3
+  rotationSpeed: 5
   isLocked: 0
   slamSpeed: 10
   creakThreshold: 10

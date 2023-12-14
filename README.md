@@ -1,6 +1,7 @@
 # Phantoms-Pursuit-Group-3-Project
 
-Controls
+## Controls
+
 Objective: Navigate around the house with the following controls. Avoid getting caught by the ghost, or you lose the game.
 
 

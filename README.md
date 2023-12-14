@@ -1,5 +1,7 @@
 # Phantoms-Pursuit-Group-3-Project
 
+A game by Justin Vanderboegh, Mark Lopez, Eli Niebaum, and Jared Hampton
+
 ## Controls
 
 Objective: Navigate around the house with the following controls. Avoid getting caught by the ghost, or you lose the game.
